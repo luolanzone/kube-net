@@ -38,6 +38,18 @@ sipcalc eth0
 # figuring out minimal sets of subnets for a particular IP range
 netmask -c 10.32.0.0:10.255.255.255
 ```
+* hex to IP
+```shell
+ip=0A000021;printf '%d.%d.%d.%d\n' $(echo $ip | sed 's/../0x& /g')
+```
+* IP to hex
+```shell
+# option 1
+apt install syslinux-utils
+gethostip -x 10.0.0.33
+# option 2
+printf '%02x%02x%02x%02x' $(echo $1 | awk -F. '{print $1" "$2" "$3" "$4}')
+```
 
 * [netshoot](https://github.com/nicolaka/netshoot) includes a set of powerful tools
 * [kubectl-debug](https://github.com/aylei/kubectl-debug) is an out-of-tree solution for troubleshooting running pods, which allows you to run a new container in running pods for debugging purpose 
