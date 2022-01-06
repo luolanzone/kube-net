@@ -51,6 +51,7 @@ gethostip -x 10.0.0.33
 printf '%02x%02x%02x%02x' $(echo $1 | awk -F. '{print $1" "$2" "$3" "$4}')
 ```
 
+* check NIC speed: `ethtool eth0 | grep Speed` or `cat /sys/class/net/eth0/speed`(Mb/s)
 * [netshoot](https://github.com/nicolaka/netshoot) includes a set of powerful tools
 * [kubectl-debug](https://github.com/aylei/kubectl-debug) is an out-of-tree solution for troubleshooting running pods, which allows you to run a new container in running pods for debugging purpose 
 * [vegeta](https://github.com/tsenart/vegeta) is HTTP load testing tool and library
